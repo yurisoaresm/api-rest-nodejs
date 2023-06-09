@@ -2,7 +2,7 @@
 node_modules
 
 # Database files
-db/app.db 
+db/*.db 
 
 # Logs
 logs

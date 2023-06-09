@@ -47,7 +47,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
     },
   );
 
-  app.post('/', async (request, response) => {
+  app.post('/', async (request, reply) => {
     const createTransactionSchema = z.object({
       amount: z.number().positive(),
       title: z.string(),
@@ -61,7 +61,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
     if (!sessionId) {
       sessionId = randomUUID();
 
-      response.cookie('sessionId', sessionId, {
+      reply.cookie('sessionId', sessionId, {
         path: '/',
         maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
       });
@@ -74,6 +74,6 @@ export async function transactionsRoutes(app: FastifyInstance) {
       session_id: sessionId,
     });
 
-    return response.code(201).send('Transcantion created');
+    return reply.code(201).send('Transcantion created');
   });
 }
