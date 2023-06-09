@@ -1,5 +1,6 @@
 # Compiled outputs
 node_modules
+build
 
 # Database files
 db/*.db 
@@ -38,7 +39,7 @@ coverage
 #Env
 .env
 .env.*
-!.env.example
+!.env.*.example
 
 # TS
 *.tsbuildinfo
